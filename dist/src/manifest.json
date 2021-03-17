@@ -1,0 +1,30 @@
+{
+    "name": "JK Filter",
+    "version": "1.0",
+    "description": "Smart content filter using machine learning.",
+    "permissions": ["activeTab", "webNavigation", "webRequest", "webRequestBlocking", "<all_urls>", "declarativeNetRequest", "declarativeNetRequestFeedback"],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.twitter.com/*","https://*.twitter.com/*"],
+            "js": ["twitter.js"],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+        "toxicModel/*"
+    ],
+    "icons": {
+        "16": "icons/icon16px.png",
+        "48": "icons/icon48px.png",
+        "128": "icons/icon128px.png"
+    },
+    "browser_action": {
+      "default_icon": "icons/icon16px.png",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}
+
+
