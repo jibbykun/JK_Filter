@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "parcel build src/twitter.js -d dist/src/ -o twitter"
   },
   "author": "",
   "license": "ISC",
