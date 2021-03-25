@@ -7,5 +7,5 @@ data/toxicModel
 data/testingData.json
 data/trainingData.json
 dist/src/twitter.js
-dist/src/twitter.map
+dist/src/twitter.js.map
 dist/src/toxicModel
