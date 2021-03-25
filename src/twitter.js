@@ -4,7 +4,7 @@ const useLoader = require('@tensorflow-models/universal-sentence-encoder');
 
 async function predictToxic(){
     try {
-        const model = await tf.loadLayersModel('https://raw.githubusercontent.com/cory-lee-afk/test/main/model.json');
+        const model = await tf.loadLayersModel('https://github.coventry.ac.uk/raw/keyanij/JK_tfjs_model/master/model.json');
         console.log('Starting load');
         const use = await useLoader.load();
         console.log('Loaded Universal Sentence Encoder');
