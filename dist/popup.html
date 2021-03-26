@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <title>JK Filter</title>
     <script src="src/trainer.js"></script>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-    <h1>Smart content filter</h1>
-    <p id="status-jkfilter">Status: </p>
-    <input type="text" id="data-jkfilter">
-    <select id="filter-jkfilter">
-        <option value="filter">I don't want to see this</option>
-        <option value="clean">I want to see this</option>
-    </select>
-    <button id="trainer-jkfilter">Filter</button>
-    <button id="clear-jkfilter">Clear data</button>
-    <button id="export-train-jkfilter">Export as training data</button>
-    <button id="export-test-jkfilter">Export as testing data</button>
+    <span class="inline-large">
+        <img src="icons/icon.png" alt="JK Filter" width="50" height="50"> <strong>JK Filter</strong>
+    </span><br><br>
+    <div>
+        <label class="text-medium" for="data-jkfilter">Enter content:</label>
+        <textarea class="text-medium" id="data-jkfilter" rows="3" cols="19"></textarea><br><br>
+        <label class="text-medium" for="filter-jkfilter">Select a filter option:</label>
+        <select class="text-medium" id="filter-jkfilter">
+            <option value=""></option>
+            <option value="filter">I don't want to see this</option>
+            <option value="clean">I want to see this</option>
+        </select><br><br>
+        <span class="center">
+            <button class="button red" id="trainer-jkfilter">Filter input data</button>
+            <button class="button red" id="clear-jkfilter">Clear saved data</button>
+        </span>
+        <p id="status-jkfilter" class="status">Status: </p>
+        <span class="center">
+            <button class="button blue" id="export-train-jkfilter">Export as training data</button>
+            <button class="button blue" id="export-test-jkfilter">Export as testing data</button>
+        </span>
+    </div>
 </body>
 </html>
