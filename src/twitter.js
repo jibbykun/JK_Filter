@@ -9,7 +9,7 @@ async function predictToxic(){
         const use = await useLoader.load();
         console.log('Loaded Universal Sentence Encoder');
         function predictTweet() {
-            document.querySelectorAll('div.css-901oao.r-18jsvk2.r-1qd0xha.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-bnwqim.r-qvutc0').forEach(async function (node) {
+            document.querySelectorAll('div.css-901oao.r-jwli3a.r-1qd0xha.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-bnwqim.r-qvutc0').forEach(async function (node) {
                 console.log('Starting encoding');
                 const embedding = await use.embed(node.innerText.toLowerCase());
                 console.log('Encoding complete.');
