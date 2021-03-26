@@ -9,3 +9,4 @@ data/trainingData.json
 dist/src/twitter.js
 dist/src/twitter.js.map
 dist/src/toxicModel
+dist/manifest.json
