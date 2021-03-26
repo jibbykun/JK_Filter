@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     trainer.addEventListener('click', function() {
         let inputData = document.getElementById('data-jkfilter').value;
         let filter = document.getElementById('filter-jkfilter').value === "filter";
-        if(!inputData || !filter){
+        if(!inputData){
             updateStatus('Status: Error. Please fill in the fields correctly.');
         } else {
             let data = {
