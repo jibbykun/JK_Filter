@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "parcel build src/twitter.js -d dist/src/ -o twitter",
-    "training-mode": "cp src/training_mode/manifest.json dist/",
-    "prediction-mode": "cp src/prediction_mode/manifest.json dist/"
+    "build-trainer": "parcel build src/model.js -d dist/src/ -o model",
+    "build-predict": "parcel build src/twitter.js -d dist/src/ -o twitter"
   },
   "author": "",
   "license": "ISC",
