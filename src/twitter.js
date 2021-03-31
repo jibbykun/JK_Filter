@@ -5,12 +5,14 @@ const useLoader = require('@tensorflow-models/universal-sentence-encoder');
 async function predictToxic(){
     try {
         // Load the tjfs model
-        const model = await tf.loadLayersModel('https://raw.githubusercontent.com/jibbykun/JK_tfjs_model/main/model.json');
+        if (modelLink !== "")
+            model = await tf.loadLayersModel(modelLink);
+        console.log(model);
         console.log('Starting load');
         // Load the universal sentence encoder
         const use = await useLoader.load();
         console.log('Loaded Universal Sentence Encoder');
-        function predictTweet() {
+        function predictContent() {
             // Run for loop against each tweet on the page
             document.querySelectorAll('div.css-901oao.r-18jsvk2.r-1qd0xha.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-bnwqim.r-qvutc0').forEach(async function (node) {
                 // Encode the tweet and make the prediction
@@ -26,13 +28,14 @@ async function predictToxic(){
                     node.innerText = "";
             });
             // Repeat the for loop every 30 seconds
-            setTimeout(function(){predictTweet();},30000);
+            setTimeout(function(){predictContent();},30000);
         }
-        predictTweet();
+        predictContent();
     } catch (err){
         console.log(err);
     }
 }
 
-// Start the execution after 10 seconds after page load
-setTimeout(function(){predictToxic();},10000);
+predictToxic();
+
+
