@@ -1,0 +1,18 @@
+{
+    "name": "JK Filter",
+    "version": "1.0",
+    "description": "Smart content filter using machine learning.",
+    "permissions": ["activeTab", "storage", "<all_urls>"],
+    "icons": {
+        "16": "icons/icon16px.png",
+        "48": "icons/icon48px.png",
+        "128": "icons/icon128px.png"
+    },
+    "browser_action": {
+      "default_icon": "icons/icon128px.png",
+      "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}
+
+
