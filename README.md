@@ -1,5 +1,7 @@
 # Getting started
 
+**To run the chrome extension, load the dist folder of the project in as a chrome extension to use all content. The below is for developers and further works.**
+
 ## Prerequisites
 
 You'll need the following tools installed in order to run the project locally:
@@ -72,7 +74,9 @@ The method is as follows:
 
 ## Train the model
 
-Next you will be training the model using your training and testing data. From the root of the project run:
+Next you will be training the model using your training and testing data. You may do this from the chrome extension however performance may not be optimal. You can instead run it locally by doing the following:
+
+ From the root of the project run:
 
 ```shell script
 npm run start
@@ -91,13 +95,15 @@ require('@tensorflow/tfjs-node-cpu');
 
 ## Upload the model
 
-For the model to be used in the chrome extension, the trained model files collected from the last step will need to be uploaded publicly where the raw json can be accessed.
+For the model to be used in the chrome extension, if you trained it using the chrome extension, you can use the filter from the extension with no further steps. If you trained the model locally, the trained model files collected from the last step will need to be uploaded publicly where the raw json can be accessed.
 
 It is recommended to use Github by creating a new repo and uploading the files to the root directory.
 
 You then need to select your model.json file and view the raw contents. Copy the URL of the raw contents. It should start with `https://raw.githubusercontent.com/`.
 
 ## Import the model into the chrome extension
+
+You can either use the chrome extensions in built link option to use the model or do the following:
 
 Navigate to the `src/` directory and open the `twitter.js` file.
 
