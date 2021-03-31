@@ -13,11 +13,11 @@ function isEmpty(object) {
     return true;
 }
 
-function updateStatus(status){
+function updateStatus(status, id='status'){
     // Update the status bar, revert after 3 seconds
-    document.getElementById('status-jkfilter').innerText = status;
+    document.getElementById(id).innerText = status;
 
-    setTimeout(function(){ document.getElementById('status-jkfilter').innerText = "Status: "; }, 3000);
+    setTimeout(function(){ document.getElementById(id).innerText = "Status: "; }, 3000);
 }
 
 function exportData(filename){
@@ -41,17 +41,37 @@ function exportData(filename){
     updateStatus('Status: Data exported.');
 }
 
+function modeSelect() {
+    if (document.getElementById('predict').checked) {
+        document.getElementById('prediction-mode').style.display = 'block';
+        document.getElementById('training-mode').style.display = 'none';
+        document.getElementById('building-mode').style.display = 'none';
+    }
+    else if (document.getElementById('train').checked) {
+        document.getElementById('training-mode').style.display = 'block';
+        document.getElementById('prediction-mode').style.display = 'none';
+        document.getElementById('building-mode').style.display = 'none';
+    } else{
+        document.getElementById('building-mode').style.display = 'block';
+        document.getElementById('training-mode').style.display = 'none';
+        document.getElementById('prediction-mode').style.display = 'none';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Pull all clickable buttons
-    let trainer = document.getElementById('trainer-jkfilter');
-    let clear = document.getElementById('clear-jkfilter');
-    let exportTrain = document.getElementById('export-train-jkfilter');
-    let exportTest = document.getElementById('export-test-jkfilter');
+    let trainer = document.getElementById('trainer');
+    let clear = document.getElementById('clear');
+    let exportTrain = document.getElementById('export-train');
+    let exportTest = document.getElementById('export-test');
+    let trainingMode = document.getElementById('train');
+    let predictionMode = document.getElementById('predict');
+    let buildingMode = document.getElementById('build');
 
     trainer.addEventListener('click', function() {
         // Store input
-        let inputData = document.getElementById('data-jkfilter').value;
-        let filterInput = document.getElementById('filter-jkfilter').value;
+        let inputData = document.getElementById('data').value;
+        let filterInput = document.getElementById('filter').value;
         let filter = filterInput === "filter";
         // Error handling
         if(!inputData || !filterInput){
@@ -109,7 +129,18 @@ document.addEventListener('DOMContentLoaded', function() {
         // Export as testing data
         exportData('testingData');
     });
-});
 
+    trainingMode.addEventListener('click', function(){
+        modeSelect();
+    });
+
+    predictionMode.addEventListener('click', function(){
+        modeSelect();
+    });
+
+    buildingMode.addEventListener('click', function(){
+        modeSelect();
+    });
+});
 
 
