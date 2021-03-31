@@ -4,29 +4,57 @@
     <meta charset="UTF-8">
     <title>JK Filter</title>
     <script src="src/trainer.js"></script>
+    <script src="src/model.js"></script>
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
     <span class="inline-large">
         <img src="icons/icon.png" alt="JK Filter" width="50" height="50"> <strong>JK Filter</strong>
     </span><br><br>
-    <div>
-        <label class="text-medium" for="data-jkfilter">Enter content:</label>
-        <textarea class="text-medium" id="data-jkfilter" rows="3" cols="19"></textarea><br><br>
-        <label class="text-medium" for="filter-jkfilter">Select a filter option:</label>
-        <select class="text-medium" id="filter-jkfilter">
+    <div class="mode text-medium">
+        <p><strong>Select mode:</strong></p>
+        <input type="radio" id="predict" name="mode" value="predict">
+        <label for="predict"> Prediction mode</label><br>
+        <input type="radio" id="train" name="mode" value="train">
+        <label for="train"> Training mode</label><br>
+        <input type="radio" id="build" name="mode" value="build">
+        <label for="build"> Model builder mode</label><br>
+    </div><br><br>
+    <div id="building-mode">
+        <span class="center">
+            <label class="text-medium" for="training-data"> Import training data:</label><br>
+            <input type="file" id="training-data" accept="application/JSON"><br><br>
+            <label class="text-medium" for="testing-data"> Import testing data:</label><br>
+            <input type="file" id="testing-data" accept="application/JSON">
+            <p id="status-train" class="status">Status: </p>
+            <button class="button blue" id="train-model">Train a model</button>
+        </span>
+    </div>
+    <div id="prediction-mode">
+        <span class="center">
+            <label class="text-medium" for="data">Enter model URL (Optional):</label>
+            <input class="text-medium" id="model-link"><br><br>
+            <p id="status-predict" class="status">Status: </p>
+            <button class="button blue" id="filter-tweets">Filter tweets</button>
+        </span>
+    </div>
+    <div id="training-mode">
+        <label class="text-medium" for="data">Enter content:</label>
+        <textarea class="text-medium" id="data" rows="3" cols="20"></textarea><br><br>
+        <label class="text-medium" for="filter">Select a filter option:</label>
+        <select class="text-medium" id="filter">
             <option value=""></option>
             <option value="filter">I don't want to see this</option>
             <option value="clean">I want to see this</option>
         </select><br><br>
         <span class="center">
-            <button class="button red" id="trainer-jkfilter">Filter input data</button>
-            <button class="button red" id="clear-jkfilter">Clear saved data</button>
+            <button class="button red" id="trainer">Filter input data</button>
+            <button class="button red" id="clear">Clear saved data</button>
         </span>
-        <p id="status-jkfilter" class="status">Status: </p>
+        <p id="status" class="status">Status: </p>
         <span class="center">
-            <button class="button blue" id="export-train-jkfilter">Export as training data</button>
-            <button class="button blue" id="export-test-jkfilter">Export as testing data</button>
+            <button class="button blue" id="export-train">Export as training data</button>
+            <button class="button blue" id="export-test">Export as testing data</button>
         </span>
     </div>
 </body>
